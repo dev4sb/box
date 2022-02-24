@@ -1,0 +1,149 @@
+<!DOCTYPE html  >
+<html class="btn" id="btnbox">
+<head>
+  <title>BOXES</title>
+    <script src="jquery-3.5.0.js"></script>
+  <style>
+  #test1 {
+  height: 150px;
+    width: 150px;
+    margin: 0px 220px;
+        background: aquamarine;
+}
+#test2 {
+  height: 150px;
+    width: 150px;
+    background: yellow;
+    margin: 30px 150px 52px 749px;
+}
+#test3{
+    background: #67699c;
+  height: 150px;
+  width: 150px;
+    margin: 19px 523px;
+}
+#test4
+{
+   height: 150px;
+    width: 150px;
+    background: aqua;
+    margin: 17px 1015px;
+}
+
+</style>
+</head>
+<body  >
+
+                <div id="test1" class="box" >
+                </div>
+
+               <div id="test2" class="box">
+               </div>
+
+               <div id="test3" class="box">
+               </div>
+  
+               <div id="test4" class="box">
+             </div>
+
+
+               
+
+<script>
+     var array = []; 
+
+  $(document).ready(function() {
+
+  $(".box").show(function(){
+     var idname =  $(this).attr('id');
+     var box = $(this).offset();
+     var a=  $(this).html("Top: " + box.top + " Left: " + box.left);
+});
+
+       $(".btn").click(function(e ){   
+          var idname =  $(this).attr('id');
+        var offset = $('.btn').offset();         
+        var x = e.pageY - offset.top;
+        var y = e.pageX - offset.left;   
+
+        console.log('top: '+x+'px left: '+y +'px' );
+        $(".box").show(function(){
+     var idname =  $(this).attr('id');
+     var box = $(this).offset();
+     var a=  $(this).html("Top: " + box.top + " Left: " + box.left);
+      var b = e.pageY- box.top ;
+        var c =  box.left - e.pageX ;
+
+
+       var d =Math.abs(b);
+        var f = Math.abs(c);   
+         var sum = d + f;
+         array.push(sum);
+
+   console.log(array);
+ });
+      $(document).ready(function() {
+        $('.box').css('border','2px solid #000');
+   var min = Math.min.apply(Math,array);
+   var index = array.indexOf(min);
+   index = index+1;
+   $('#test'+index).css('border','2px solid red');
+  var Id = $(".box").attr("id");
+  //  console.log(min);
+  //  var player  = $('.box'),
+  //   current = player.filter('.box'),
+  //   index = current.index();
+    console.log(index);
+});
+            $('.btn').on('click', function() {
+           location.reload();
+
+                 });
+
+});
+                 });
+ 
+      
+    
+
+
+
+  
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
